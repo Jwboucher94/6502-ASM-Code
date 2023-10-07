@@ -1,6 +1,9 @@
+; 16 Number Averaging on the 6502
+; Jack Boucher 
+
 ; Set number of values, binary logarithm, values
-N = 7
-BL = 3
+N = 15
+BL = 4
 STORE = $0200
 CARRYSTORE = $0201
 NUM0 = $9F
@@ -10,7 +13,15 @@ NUM3 = $CF
 NUM4 = $CC
 NUM5 = $A2
 NUM6 = $AF
-NUM7 = $D2
+NUM7 = $BC
+NUM8 = $9F
+NUM9 = $53
+NUM0A = $DD
+NUM0B = $FC
+NUM0C = $CC
+NUM0D = $2A
+NUM0E = $FA
+NUM0F = $2D
 
 NUM0S = $0100
 
@@ -46,7 +57,42 @@ INX
 PHA
 LDA #NUM7
 STA NUM0S,X
+INX
 PHA
+
+LDA #NUM8
+STA NUM0S,X
+INX
+PHA
+LDA #NUM9
+STA NUM0S,X
+INX
+PHA
+LDA #NUM0A
+STA NUM0S,X
+INX
+PHA
+LDA #NUM0B
+STA NUM0S,X
+INX
+PHA
+LDA #NUM0C
+STA NUM0S,X
+INX
+PHA
+LDA #NUM0D
+STA NUM0S,X
+INX
+PHA
+LDA #NUM0E
+STA NUM0S,X
+INX
+PHA
+LDA #NUM0F
+STA NUM0S,X
+INX
+PHA
+
 
 ; Steps for addition
 LDA #0
